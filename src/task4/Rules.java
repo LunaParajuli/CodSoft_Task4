@@ -38,7 +38,7 @@ public class Rules extends JFrame implements ActionListener {
                 (
                   "<html>"+
                           "1. Participation in the quiz is free."+"<br><br>"+
-                          "2. A complete game consists of 20 questions."+"<br><br>"+
+                          "2. A complete game consists of 10 questions."+"<br><br>"+
                           "3. You will be provided 10 seconds for each question."+"<br><br>"+
                           "4. Use your own mind to know your knowledge."+"<br><br>"+
                           "5. Just be relaxed and Good Luck."+"<br><br>"+
@@ -67,6 +67,11 @@ public class Rules extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e)
     {
       if(e.getSource()== Start)
+      {
+          setVisible(false);
+          new Game(name);
+      }
+      else
       {
         setVisible(false);
         new Login();
