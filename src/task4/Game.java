@@ -14,13 +14,14 @@ public class Game extends JFrame implements ActionListener
     String questions[][] = new String[10][4];
     String answers[][] = new String[10][2];
     String useranswers[][] = new String[10][1];
+    
      
     JLabel qno,question;
     JRadioButton opt1,opt2,opt3;
     ButtonGroup group;
     JButton next,submit;
     
-    public static int timer = 10;
+    public static int timer = 5;
     public static int ans_given = 0;
     public static int count = 0;
     public static int scores = 0;
@@ -186,7 +187,6 @@ public class Game extends JFrame implements ActionListener
              next.setEnabled(false);
              submit.setEnabled(true);
            }
-           
            count++;
            start(count);
        }
@@ -210,16 +210,17 @@ public class Game extends JFrame implements ActionListener
                   scores += 0;
               }
           }
-          setVisible(false);
-          new Score(name,scores);
+        setVisible(false);
+          new Score(name,scores); 
        }
+        
     }
     
     public void paint(Graphics g)
     {
         super.paint(g);
         
-        String time = "Time left: "+timer + " seconds"; //10
+        String time = "Time left: "+timer + " seconds"; //5
         g.setColor(Color.RED);
         g.setFont(new Font("Serif",Font.BOLD,25));
         
@@ -247,11 +248,11 @@ public class Game extends JFrame implements ActionListener
         if(ans_given ==1)
         {
             ans_given = 0;
-            timer = 10;
+            timer = 5;
         }
         else if(timer<0)
         {
-            timer = 10;
+            timer = 5;
             opt1.setEnabled(true);
             opt2.setEnabled(true);
             opt3.setEnabled(true);
@@ -307,10 +308,10 @@ public class Game extends JFrame implements ActionListener
       opt1.setActionCommand(questions[count][1]);
       
       opt2.setText(questions[count][2]);
-      opt2.setActionCommand(questions[count][1]);
+      opt2.setActionCommand(questions[count][2]);
       
       opt3.setText(questions[count][3]);
-      opt3.setActionCommand(questions[count][1]);
+      opt3.setActionCommand(questions[count][3]);
       
       group.clearSelection();
       
